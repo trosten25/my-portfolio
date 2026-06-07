@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-wrapper {
+  background-color: #0d0d0d;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+/* Background Animated Blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.blob-1 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #a0feff 0%, #5ad1ff 100%);
+  top: 10%;
+  right: 15%;
+}
+
+.blob-2 {
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(135deg, #717cff 0%, #b273ff 100%);
+  bottom: 5%;
+  left: 10%;
+}
+
+.blob-3 {
+  width: 150px;
+  height: 150px;
+  background: #ff7eb3;
+  top: 40%;
+  left: 30%;
+}
+
+/* Header Text */
+.header-text {
+  text-align: center;
+  z-index: 2;
+  margin-bottom: 40px;
+}
+
+.header-text h1 {
+  font-size: 3.5rem;
+  margin: 0;
+}
+
+.header-text p {
+  color: #ccc;
+  font-size: 1.1rem;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  z-index: 10;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.info-side {
+  flex: 0.8;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-side h2 {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.info-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+}
+
+/* Form Styling */
+.form-side {
+  flex: 1.2;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  font-size: 0.8rem;
+  color: #eee;
+}
+
+.input-group input, 
+.input-group textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #555;
+  color: white;
+  padding: 8px 0;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+  border-color: #fff;
+}
+
+.radio-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.radio-group label {
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.submit-btn {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 8px;
+  font-weight: 600;
+  align-self: flex-end;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: #444;
+  transform: translateY(-2px);
+}
+
+.button-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.status-text {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #a0feff;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .glass-card {
+    flex-direction: column;
+  }
+  .row {
+    flex-direction: column;
+  }
+  .header-text h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Additional mobile rules to enforce stacking and touch targets */
+@media (max-width: 768px) {
+  .contact-wrapper { padding: 18px; align-items: stretch; }
+
+  .glass-card { flex-direction: column; gap: 12px; padding: 14px; border-radius: 14px; }
+
+  .info-side { order: 1; width: 100%; padding: 12px 8px; }
+  .form-side { order: 2; width: 100%; padding: 8px; }
+
+  .row { flex-direction: column; gap: 12px; }
+  .input-group { width: 100%; }
+  .input-group input, .input-group textarea { width: 100%; box-sizing: border-box; }
+
+  .radio-group { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  @media (max-width: 420px) { .radio-group { grid-template-columns: 1fr; } }
+
+  .button-area { display:flex; justify-content:center; padding-top:6px; }
+  .submit-btn { width: 100%; max-width: 420px; padding: 12px 18px; align-self:center; }
+
+  .contact-wrapper, .glass-card { overflow: hidden; }
+}

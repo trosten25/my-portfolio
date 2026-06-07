@@ -1,0 +1,20 @@
+/* 1. The Magic Line for Smooth Scrolling */
+/* responsive.css is imported from JS to avoid PostCSS @import ordering issues */
+/* import is in src/main.jsx */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 2. Section Spacing */
+section {
+  /* This ensures that when you click a link, the heading 
+     isn't hidden behind a sticky navbar (if you add one later) */
+  /* scroll-margin-top: 100px;  */
+  
+  /* Optional: keeps sections taking up the full screen */
+  min-height: 100vh;
+}
+
+.portfolio-wrapper {
+  background-color: #050a14; /* Matches your hero background */
+}

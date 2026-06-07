@@ -1,0 +1,48 @@
+/* Navbar base visibility helpers */
+.desktop-only { display: flex; gap: 16px; align-items: center; }
+.mobile-only { display: none; }
+.site-header { position: sticky; top: 0; z-index: 900; background: transparent; }
+.nav-inner { display:flex; align-items:center; justify-content:space-between; padding: 12px 1rem; }
+.nav-links a { color: #fff; text-decoration: none; padding: 8px 12px; border-radius: 6px; font-size: 1.05rem; }
+.logo { font-weight:700; color:#fff; text-decoration:none; font-size: 1.125rem; }
+
+/* Ensure mobile drawer is hidden by default (desktop) */
+.mobile-drawer { display: none; }
+
+/* Mobile-specific rules */
+@media (max-width: 768px) {
+  .desktop-only { display: none !important; }
+  .mobile-only { display: inline-flex !important; }
+
+  .nav-inner { padding: 10px 0.75rem; }
+
+  .hamburger {
+    background: transparent; border: none; padding: 8px; cursor: pointer; line-height: 0;
+  }
+  .hamburger-box { display:inline-block }
+  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 22px; height: 2px; background:#fff; display:block; position:relative; transition: transform .25s ease, opacity .25s ease;
+  }
+  .hamburger-inner::before, .hamburger-inner::after { content:""; position:absolute; left:0; }
+  .hamburger-inner::before { top:-7px; }
+  .hamburger-inner::after { top:7px; }
+  .hamburger.is-active .hamburger-inner { background:transparent; }
+  .hamburger.is-active .hamburger-inner::before { transform: translateY(7px) rotate(45deg); }
+  .hamburger.is-active .hamburger-inner::after { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Drawer/backdrop */
+  .mobile-drawer {
+    position: fixed; inset: 0; display: flex; align-items: flex-start; justify-content: flex-end;
+    background: rgba(0,0,0,0.35); visibility: hidden; opacity: 0; transition: opacity .22s ease, visibility .22s; z-index: 1200;
+  }
+  .mobile-drawer.open { visibility: visible; opacity: 1; }
+  .mobile-drawer-panel {
+    width: min(320px, 92%); height: 100vh; background: linear-gradient(180deg, #071022, #0b1220);
+    transform: translateX(100%); transition: transform .28s cubic-bezier(.2,.9,.2,1); box-shadow: -8px 0 30px rgba(0,0,0,0.5); padding: 20px; overflow-y: auto;
+  }
+  .mobile-drawer.open .mobile-drawer-panel { transform: translateX(0); }
+
+  .mobile-nav { display:flex; flex-direction:column; gap:14px; margin-top:24px; }
+  .mobile-nav a { padding: 12px 8px; font-size:1rem; color:#fff; text-decoration:none; border-radius:8px; }
+  .drawer-close { position:absolute; top:10px; right:14px; background:transparent; color:#fff; border:none; font-size:28px; cursor:pointer; }
+}
