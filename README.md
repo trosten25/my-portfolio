@@ -1,16 +1,80 @@
-# React + Vite
+# Trosten Dsouza Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This portfolio is a modern, responsive React application built with Vite. It showcases a personal portfolio website for Trosten Dsouza, highlighting an interactive hero section, project gallery, about section, and a contact form with Web3Forms integration.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
 
-## React Compiler
+- React 19 + Vite for a fast development and build experience
+- Responsive layout with mobile navigation and drawer menu
+- Custom 3D animated sphere using `@react-three/fiber` and `@react-three/drei`
+- Project showcase cards with links to GitHub repositories
+- Contact form powered by Web3Forms for secure form submission
+- Clean component structure with dedicated styling files
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React
+- Vite
+- JavaScript
+- Three.js / `@react-three/fiber`
+- `@react-three/drei`
+- Web3Forms
+- ESLint
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+- `src/App.jsx` — main page layout and section anchors
+- `src/components/` — page sections: `Navbar`, `Hero`, `About`, `Projects`, `Contact`
+- `src/assets/` — project screenshots and image assets
+- `src/styling/` — component-specific CSS files
+- `src/index.css` — base global styles
+- `src/main.jsx` — React app entry point
+
+## Installation
+
+```bash
+npm install
+```
+
+## Running Locally
+
+```bash
+npm run dev
+```
+
+Open the URL shown in the terminal to preview the portfolio locally.
+
+## Build
+
+```bash
+npm run build
+```
+
+Optionally preview the production build with:
+
+```bash
+npm run preview
+```
+
+## Environment Variables
+
+This project uses a Web3Forms API access key for the contact form.
+
+Create a `.env` file in the project root with:
+
+```env
+VITE_WEB_FORM_ACESS_KEY=your_web3forms_access_key
+```
+
+Then restart the Vite server.
+
+## Contact
+
+- Email: `trostendsouza@gmail.com`
+- Location: Panaji, Goa, India
+
+## Notes
+
+This portfolio is intended to present professional skills in full-stack web development, UI/UX design, and AI/ML interests. It is easy to extend with additional sections, project items, or portfolio details.
