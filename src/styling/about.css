@@ -85,3 +85,26 @@
   .service-card { width: min(92%, 520px); margin: 0 auto; }
   .card-inner { padding: 1.5rem; }
 }
+
+/* Left yellow graphic line for About / Projects / Contact pages */
+.overview-container.left-graphic-line {
+  position: relative;
+  padding-left: calc(10% + 2rem);
+}
+
+.overview-container.left-graphic-line::before {
+  content: "";
+  position: absolute;
+  left: calc(10% - 1rem);
+  top: 3rem;
+  bottom: 3rem;
+  width: 6px;
+  background: linear-gradient(180deg, #FFD700 0%, #FFEA00 100%);
+  border-radius: 4px;
+  box-shadow: 0 6px 18px rgba(255, 215, 0, 0.18);
+}
+
+@media (max-width: 768px) {
+  .overview-container.left-graphic-line { padding-left: 1.25rem; }
+  .overview-container.left-graphic-line::before { display: none; }
+}

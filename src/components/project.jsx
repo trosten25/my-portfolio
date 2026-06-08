@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import "../styling/project.css";
 
 import ipBridgeScreenshot from '../assets/project-pictures/ip-bridge-screenshot.png';
@@ -17,7 +17,7 @@ const projects = [
       { name: "firebase", color: "orange-text" },
       { name: "gemini-ai", color: "green-text" },
     ],
-    image: ipBridgeScreenshot, // Replace with your image path
+    image: ipBridgeScreenshot,
     source_code_link: "https://github.com/trosten25/ip-bridge",
   },
   {
@@ -28,12 +28,12 @@ const projects = [
       { name: "node", color: "yellow-text" },
       { name: "postgres", color: "blue-text" },
     ],
-    image: onlineVotingScreenshot, // Replace with your image path
+    image: onlineVotingScreenshot,
     source_code_link: "https://github.com/trosten25/voting-online",
   },
-    {
+  {
     name: "Flow-twin",
-    description: "Flow Twin is a tool that helps us track tasks and see how productive our employees are. It has an interface that we can use from the internet and it works with a system that stores all our information. We can use Flow Twin to give people tasks to do they can send us their work we can say if it is good or not and we can keep track of how time they spend working. We made Flow Twin using React for the interface and Express and PostgreSQL for the system that stores our information. Flow Twin is really helpful, for assigning tasks and tracking what our employees do.",
+    description: "Flow Twin is a tool that helps us track tasks and see how productive our employees are. It made use of React for the interface and Express and PostgreSQL for the system that stores our information.",
     tags: [
       { name: "javascript", color: "yellow-text" },
       { name: "css", color: "purple-text" },
@@ -42,10 +42,9 @@ const projects = [
     image: flowTwinScreenshot,
     source_code_link: "https://github.com/trosten25/flow-twin",
   },
-
-     {
+  {
     name: "Fixture-Generator",
-    description: "A flexible, web-based tournament scheduling application built with HTML, CSS, and PHP. It allows users to dynamically generate complete match schedules for both League (Round-Robin) and Knockout (Elimination) tournament formats. The backend logic seamlessly handles an odd number of participants by automatically integrating balanced Bye weeks or walkover slots, providing a clean, responsive interface for organizers to manage their competitions from any device.",
+    description: "A flexible, web-based tournament scheduling application built with HTML, CSS, and PHP. It allows users to dynamically generate complete match schedules for both League and Knockout formats.",
     tags: [
       { name: "html", color: "orange-text" },
       { name: "css", color: "purple-text" },
@@ -54,7 +53,6 @@ const projects = [
     image: fixtureGeneratorScreenshot,
     source_code_link: "https://github.com/trosten25/fixture-generator",
   },
-
   {
     name: "SEEDMAP - Soil Classification",
     description: "A machine learning Flask application that classifies soil types from images and provides tailored crop recommendations.",
@@ -63,12 +61,29 @@ const projects = [
       { name: "scikit-learn", color: "green-text" },
       { name: "flask", color: "pink-text" },
     ],
-    image: seedmap, // Replace with your image path
+    image: seedmap,
     source_code_link: "https://github.com/trosten25/Seedmap-project",
   },
 ];
 
 const Projects = () => {
+  const scrollRef = useRef(null);
+
+  const handleScroll = (direction) => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    if (window.innerWidth > 768) {
+      // PC Logic: Scroll vertically by the height of the 2 rows
+      const scrollAmount = container.clientHeight;
+      container.scrollTop += direction === 'next' ? scrollAmount : -scrollAmount;
+    } else {
+      // Mobile Logic: Scroll horizontally by roughly one card width
+      const scrollAmount = container.clientWidth * 0.85;
+      container.scrollLeft += direction === 'next' ? scrollAmount : -scrollAmount;
+    }
+  };
+
   return (
     <section className="projects-container">
       <div className="text-content">
@@ -81,7 +96,7 @@ const Projects = () => {
         </p>
       </div>
 
-      <div className="projects-wrapper">
+      <div className="projects-wrapper" ref={scrollRef}>
         {projects.map((project, index) => (
           <div key={`project-${index}`} className="project-card">
             <div className="image-container">
@@ -105,6 +120,16 @@ const Projects = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Navigation Arrows */}
+      <div className="projects-navigation">
+        <button className="nav-arrow" onClick={() => handleScroll('prev')} aria-label="Previous items">
+          &#8592;
+        </button>
+        <button className="nav-arrow" onClick={() => handleScroll('next')} aria-label="Next items">
+          &#8594;
+        </button>
       </div>
     </section>
   );

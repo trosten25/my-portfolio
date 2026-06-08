@@ -17,8 +17,10 @@ export default function Navbar() {
         <nav className="nav-links desktop-only">
           <a href="#home">Home</a>
           <a href="#about">About</a>
+          <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
+        
         </nav>
 
         <button
@@ -44,6 +46,7 @@ export default function Navbar() {
           <nav className="mobile-nav">
             <a href="#home" onClick={() => setIsOpen(false)}>Home</a>
             <a href="#about" onClick={() => setIsOpen(false)}>About</a>
+            <a href="#skills" onClick={() => setIsOpen(false)}>Skills</a>
             <a href="#projects" onClick={() => setIsOpen(false)}>Projects</a>
             <a href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
           </nav>
